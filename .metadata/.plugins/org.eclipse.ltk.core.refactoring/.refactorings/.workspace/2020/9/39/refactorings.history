@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;ficherosBinariosApp&apos;" deleteContents="true" description="Delete resource &apos;ficherosBinariosApp&apos;" element1="/ficherosBinariosApp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1600694873208"/>&#x0A;<refactoring comment="Delete resource &apos;FicherosBinariosApp&apos;" deleteContents="false" description="Delete resource &apos;FicherosBinariosApp&apos;" element1="/FicherosBinariosApp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1600784737964"/>
+</session>

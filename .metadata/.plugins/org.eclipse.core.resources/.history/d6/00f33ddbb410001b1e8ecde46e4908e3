@@ -1,0 +1,94 @@
+package pkgListadoDirectoriosEjer06;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
+
+public class ListadoDirectoriosEjer06 {
+
+	public static void main(String[] args) throws IOException {
+		String ruta = "";
+		// TODO Auto-generated method stub
+		if(args.length>=1) {
+			ruta = args[0];
+		}	
+		File directorio = new File(ruta);
+		FileInputStream fis;
+		if(directorio.exists()) {
+			File listaArch [] = directorio.listFiles();
+			for (int i = 0; i < listaArch.length; i++) {
+				if(listaArch[i].isDirectory()) {
+					File directorios[] = listaArch[i].listFiles();
+					System.out.println(directorios[i].getName());
+					if(directorios.length>0) {
+						System.out.println("LL");
+					}else {
+						System.out.println("VA");
+					}
+				}
+					
+				
+				else if(listaArch[i].isFile()) {
+					fis = new FileInputStream(listaArch[i]);
+					System.out.print(listaArch[i].getName());
+					if(listaArch[i].getName().indexOf(".pdf") > -1) {						
+						byte[] data = new byte[1024];
+						int valor=-1;
+						valor = fis.read(data);
+						String tipo = new String(data);
+						if(tipo.indexOf("%PDF") > -1) {
+							System.out.println(" ok");
+						}else {
+							System.out.println("err");
+						}		
+					}	
+					else if(listaArch[i].getName().indexOf(".jpg") > -1) {						
+						byte[] data = new byte[1024];
+						int valor=-1;
+						valor = fis.read(data);
+						String tipo = new String(data);
+						if(tipo.indexOf("JFIF") > -1) {
+							System.out.println(" ok");
+						}else {
+							System.out.println("err");
+						}
+						
+						
+					}
+					else if(listaArch[i].getName().indexOf(".exe") > -1) {						
+						byte[] data = new byte[1024];
+						int valor=-1;
+						valor = fis.read(data);
+						String tipo = new String(data);
+						if(tipo.indexOf("MZ") > -1) {
+							System.out.println(" ok");
+						}else {
+							System.out.println("err");
+						}						
+						
+					}
+					else if(listaArch[i].getName().indexOf(".png") > -1) {						
+						byte[] data = new byte[1024];
+						int valor=-1;
+						valor = fis.read(data);
+						String tipo = new String(data);
+						if(tipo.indexOf("PNG") > -1) {
+							System.out.println(" ok");
+						}else {
+							System.out.println("err");
+						}				
+						
+					}					
+				}		
+			}	
+				
+		}
+	}
+		 
+}
+		
+
+
